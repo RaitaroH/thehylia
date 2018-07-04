@@ -1,0 +1,39 @@
+#!/bin/bash
+
+path=~/github/thehylia/thehylia.py
+dir=~/Desktop
+
+params="$(getopt -o dbf -l download,batch,fzf --name "$0" -- "$@")"
+eval set -- "$params"
+
+while true
+do
+	case "$1" in
+	-d|--download)
+		if [[ "$3" != "" ]]; then
+			python $path "$3" "$dir/$3"
+		fi
+		exit 1
+	;;
+	-b|--batch)
+		array=($(python "$path" --search "$3" | tr '\r\n' ' ' ))
+		for (( k=0; k<=${#array[@]} ; k++ )); do
+			if [[ "${array[$k]}" != "" ]]; then
+				echo
+				echo "Now downloading ${array[$k]}"
+				python $path "${array[$k]}" "$dir/${array[$k]}"
+			fi
+		done
+		exit 1
+	;;
+
+	-f|--fzf)
+			link=`python "$path" --search "$3" | fzf` ;
+			if [[ "$link" != "" ]]; then
+				python $path "$link" "$dir/$link"
+				echo
+			fi
+		exit 1
+	;;
+    esac
+done
