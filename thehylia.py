@@ -495,8 +495,8 @@ if __name__ == '__main__':
             if onlySearch:
                 searchResults = search(searchTerm)
                 if searchResults:
-                    print("Soundtracks found (to download, "
-                          "run \"{} soundtrack-name\"):".format(SCRIPT_NAME))
+                    # print("Soundtracks found (to download, "
+                         # "run \"{} soundtrack-name\"):".format(SCRIPT_NAME))
                     for soundtrack in searchResults:
                         print(soundtrack.id)
                 else:
