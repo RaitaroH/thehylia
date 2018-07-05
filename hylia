@@ -3,7 +3,7 @@
 path=~/github/thehylia/thehylia.py
 dir=~/Desktop
 
-params="$(getopt -o dbf -l download,batch,fzf --name "$0" -- "$@")"
+params="$(getopt -o dbfh -l download,batch,fzf,help --name "$0" -- "$@")"
 eval set -- "$params"
 
 while true
@@ -33,6 +33,25 @@ do
 				python $path "$link" "$dir/$link"
 				echo
 			fi
+		exit 1
+	;;
+
+	-h|--help)
+		echo "hylia -d name/link - downlaod something"
+		echo "hylia -b name - search for term and donwload everything found"
+		echo "hylia -f name - search and give a choice what to download"
+		exit 1
+	;;
+
+	--)
+		echo "use --help to see the commands"
+		shift
+		exit 1
+	;;
+
+	*)
+
+		echo "use --help to see the comamnds" >&2
 		exit 1
 	;;
     esac
