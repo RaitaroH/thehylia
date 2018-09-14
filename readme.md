@@ -43,7 +43,7 @@ You will also need to have [pip](https://pip.readthedocs.org/en/latest/installin
 For more detailed information, try running `thehylia.py --help`!
 
 ## Scripts
-[@RaitaroH](https://github.com/RaitaroH) wrote the scripts. Put them in `~/bin`, use `chmod +x` to make them executable. Change the path to the python script and the download directory as needed. `hylia` is a composite of all the other scripts. Your choice what you preffer.
+[@RaitaroH](https://gitlab.com/RaitaroH) wrote the scripts. Put them in `~/bin`, use `chmod +x` to make them executable. Change the path to the python script and the download directory as needed. `hylia` is a composite of all the other scripts. Your choice what you preffer.
 
 The scripts are as follows:
 + hyliad - it can download from given a link
